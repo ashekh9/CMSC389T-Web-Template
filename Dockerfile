@@ -14,9 +14,18 @@ WORKDIR /home/node/app
 USER node
 
 COPY --chown=node:node . .
+COPY assets/githubwhite.png ./assets/githubwhite.png
+COPY assets/linkedinwhite.png ./assets/linkedinwhite.png
+COPY assets/profilepic.jpg ./assets/profilepic.jpg
+COPY assets/umd-logo.png ./assets/umd-logo.png
+COPY package.json ./
+COPY index.html ./
+COPY css/style.css ./css/style.css
+COPY app.js ./
+COPY nginx-conf/nginx.conf ./nginx-conf/nginx.conf
 
 RUN npm install
 
-EXPOSE 8080/tcp
+EXPOSE 8080
 
 CMD ["node", "app.js"]
